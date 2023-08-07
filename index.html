@@ -3,10 +3,86 @@
 <head>
   <style>
     .bg-image {
-        background-image: url('/dreamstime_xxl_123552072.jpg');
+        background-image: url('./dreamstime_xxl_123552072.jpg');
+      
     }
-</style>
 
+    html {
+    scroll-behavior: smooth;
+}
+/* Add your existing homepage styles here */
+
+
+#courseDetailsPopup {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 320px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Show the popup */
+#courseDetailsPopup.expanded {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
+
+
+/* video  */
+.video-container {
+      padding-bottom: 150%; /* 16:9 aspect ratio (change this to match your videos' aspect ratio) */
+    }
+
+    .video-container video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Responsive classes for different screen sizes */
+    @media (max-width: 639px) {
+      /* Mobile */
+      .grid-cols-1 {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 640px) and (max-width: 767px) {
+      /* Small devices (landscape phones) */
+      .grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      /* Tablets */
+      .grid-cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1024px) {
+      /* Desktops */
+      .grid-cols-4 {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap" rel="stylesheet">
   <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -18,7 +94,7 @@
 </head>
 <body class="bg-gray-100">
   <!-- Navigation Bar -->
-  <section class="container-full font-sans">
+  <section style="font-family: 'Roboto', sans-serif;" class="container-full z-50  font-sans fixed w-full">
     <!-- Navbar -->
     <nav class="bg-blue-500 p-4">
       <div class="flex items-center justify-between">
@@ -55,8 +131,8 @@
           </button>
         </div>
         <!-- Navigation Links -->
-        <div class="hidden md:flex font-bold space-x-4">
-          <a href="#leader" class="text-white hover:text-blue-800">Home</a>
+        <div class="hidden md:flex font-sans font-bold space-x-4 ">
+          <a href="#home" style="font-family: 'Roboto', sans-serif;" class="text-white hover:text-blue-800">Home</a>
           <!-- Dropdown Trigger -->
           <div
             x-data="{ open: false }"
@@ -124,22 +200,24 @@
               
             </div>
           </div>
-          
-          <a href="asse/history.html" class="text-white hover:text-blue-800"
+          <a href="#clara" style="font-family: 'Roboto', sans-serif;" class="text-white hover:text-blue-800">Clara The Robot</a>
+          <a href="#ceo" style="font-family: 'Roboto', sans-serif;" class="text-white hover:text-blue-800">CEO</a>
+          <a href="#services" style="font-family: 'Roboto', sans-serif;" class="text-white hover:text-blue-800"
             >Services</a
           >
-          <a href="#video" class="text-white hover:text-blue-800">About us</a>
-          <a
-            href="asse/login.html"
-            target="_blank"
+          
+          <a href="/about.htm" style="font-family: 'Roboto', sans-serif;" class="text-white hover:text-blue-800">About Us</a>
+          <a style="font-family: 'Roboto', sans-serif;"
+          href="#add"
+           
             class="text-white hover:text-blue-800"
             >Contact Us</a
           >
         </div>
       </div>
       <!-- Mobile Menu -->
-      <div id="navbar-menu" class="hidden font-bold md:hidden mt-4">
-        <a href="#leader" class="block my-1 text-white">Home</a>
+      <div id="navbar-menu" class="hidden font-bold md:hidden mt-4 z-10">
+        <a href="#home" class="block my-1 text-white">Home</a>
         <div
           class="relative text-center"
           x-data="{ open: false }"
@@ -205,9 +283,12 @@
             
           </div>
         </div>
-        <a href="#video" class="block text-white">Serivces</a>
-        <a href="asse/history.html" class="block my-1 text-white">Contact Us</a>
-        <a href="asse/login.html" target="_blank" class="block text-white"
+        <a href="#ceo" class="block my-1 text-white">CEO</a>
+        <a href="#clara" class="block my-1 text-white">Clara The Robot</a>
+        <a href="#services" class="block text-white">Serivces</a>
+        <a  href="tel:7200795279" class="block my-1 text-white">Contact Us</a>
+        
+        <a href="./about.htm"  class="block text-white"
           >About Us</a
         >
       </div>
@@ -215,51 +296,255 @@
   </section>
 
   <!-- Hero Section -->
-  <header class="bg-blue-800 text-white py-10 md:py-20  bg-cover bg-center  shadow-md p-6 max-h-fit lg:h-screen bg-image">
+  <header id="home" class="bg-blue-800 text-white py-10 md:py-20  bg-cover bg-center  shadow-md p-6 max-h-fit lg:h-screen bg-image">
     <div class="container mx-auto text-center   flex items-center mx-auto justify-center ">
       <div class="lg:mt-48 ">
-      <h1 class="lg:text-3xl text-2xl pt-20  md:text-4xl font-bold mb-4 animate__animated animate__slideInUp">Welcome to TransenDynamics</h1>
+      <h1 style="font-family: 'Roboto', sans-serif;" class="lg:text-3xl text-2xl pt-20  md:text-4xl font-bold mb-4">Welcome to TransenDynamics</h1>
       <p class="text-base md:text-lg lg:py-10">We are a leading robotics company in Chennai, transforming industries with cutting-edge technology.</p>
-      <a href="#" class="mt-4 inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Learn More</a>
+      <a style="font-family: 'Roboto', sans-serif;" href="./about.htm" class="mt-4 inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Learn More</a>
     </div>
     </div>
   </header>
 
+
+  <!-- clara part start  -->
+  <div id="clara" class="container-full  bg-blue-800 mx-auto py-10 px-4">
+    <div class="mt-10 mx-auto flex justify-center items-center sm:w-52 md:w-72 lg:w-96 h-screen">
+      <img class="w-full max-h-[90vh]" src="./clara png copy 1111.png" alt="Clara the Robot">
+    </div>
+    <h1 style="font-family: 'Roboto', sans-serif;" class="whitespace-normal text-white text-justify  md:text-center text-lg md:text-2xl lg:text-4xl font-bold mb-6 hidden md:block">Clara The Robot: Your Personal Interactive Educator</h1>
+    <h1 class="text-center text-white text-2xl font-bold md:hidden">Clara The Robot:</h1>
+    <h2 class="py-2 text-center text-white text-lg md:hidden"> Your Personal Interactive Educator</h2>
+    <div style="font-family: 'Roboto', sans-serif;" class="rounded-lg shadow-md p-6">
+      <p class="text-xl hidden md:block mb-4 text-white py-10 mx-16">Clara is an innovative and advanced robot designed to be a personal interactive
+        educator. With cutting-edge AI technology and natural language processing, Clara can understand and
+        respond to human speech, providing a seamless and engaging learning experience. 
+        include:</p>
+
+        <h1 class=" mb-4 text-white py-10 text-xl mx-16">Her key features</h1>
+      <div class="grid text-center md:mx-20  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mx-4">
+        <!-- Educational Expertise Card -->
+        <div class="bg-white rounded-lg bg-gray-300  shadow-md p-4">
+          <h3 class="text-lg font-semibold mb-2">Educational Expertise</h3>
+          <p class="text-gray-700">Clara possesses a vast repository of educational content, covering various subjects and topics. From mathematics and science to history and language arts, she serves as a comprehensive source of knowledge.</p>
+        </div>
+  
+        <!-- Adaptive Learning Card -->
+        <div class="bg-white rounded-lg  bg-gray-300 shadow-md p-4">
+          <h3 class="text-lg font-semibold mb-2">Adaptive Learning</h3>
+          <p class="text-gray-700">Clara's AI capabilities enable her to personalize the learning journey for each user. She analyzes individual interactions and performance to tailor her teaching style, ensuring optimal learning outcomes.</p>
+        </div>
+  
+        <!-- Problem-Solving Mentor Card -->
+        <div class="bg-white rounded-lg bg-gray-300 shadow-md p-4">
+          <h3 class="text-lg font-semibold mb-2">Problem-Solving Mentor</h3>
+          <p class="text-gray-700">Clara excels at guiding users through complex problem-solving tasks. Whether it's math equations or logical puzzles, she offers patient and methodical support to enhance problem-solving skills.</p>
+        </div>
+  
+        <!-- Interactive Conversations Card -->
+        <div class="bg-white rounded-lg bg-gray-300 shadow-md p-4">
+          <h3 class="text-lg font-semibold mb-2">Interactive Conversations</h3>
+          <p class="text-gray-700">Engaging in meaningful conversations with Clara promotes language development, critical thinking, and exploration of diverse ideas and perspectives.</p>
+        </div>
+  
+        <!-- Continual Updates Card -->
+        <div class="bg-white rounded-lg bg-gray-300 shadow-md p-4">
+          <h3 class="text-lg font-semibold mb-2">Continual Updates</h3>
+          <p class="text-gray-700">Clara stays current with the latest information and developments by accessing online resources and databases, ensuring that her knowledge is always up-to-date.</p>
+        </div>
+  
+        <!-- Multilingual Capabilities Card -->
+        <div class="bg-white rounded-lg bg-gray-300 shadow-md p-4">
+          <h3 class="text-lg font-semibold mb-2">Multilingual Capabilities</h3>
+          <p class="text-gray-700">Clara can communicate and teach in multiple languages, making her a valuable companion for learners from diverse linguistic backgrounds.</p>
+        </div>
+  
+        <!-- Smart Device Integration Card -->
+        <div class="bg-white rounded-lg bg-gray-300 shadow-md p-4">
+          <h3 class="text-lg font-semibold mb-2 font-bold font-black">Smart Device Integration</h3>
+          <p class="text-gray-700">Clara seamlessly integrates with smart devices, providing additional functionalities like setting reminders, providing weather updates, and controlling home automation systems.</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <!-- clara part ends here  -->
+
+<!-- ceo part  -->
+
+<!-- CEO Section -->
+<section id="ceo" class="bg-gray-100 py-12">
+  <div class="container mx-auto px-4">
+    <div class="max-w-xl mx-auto">
+      <h2 class="text-3xl hidden md:block py-16 font-semibold text-center md:text-4xl text-gray-800 mb-6">Meet Our Founder & CEO</h2>
+      <div class="flex flex-col lg:flex-row items-center lg:space-x-4">
+        <div class="flex-shrink-0">
+          <img src="./first (2).jpg" alt="Kennithraj A" class="w-24 h-24 rounded-full">
+        </div>
+        <div class="mt-4 lg:mt-0">
+          <h3 class="text-xl md:text-4xl md:py-2 font-semibold text-gray-800">Kennithraj A</h3>
+          <p class="text-gray-600  md:text-2xl ">Founder & CEO of Transen Dynamics</p>
+        </div>
+      </div>
+      <div class="mt-8">
+        <p class="text-gray-700  md:text-2xl ">Kennithraj A is a specialist in the field of Robotics and Artificial Intelligence. He has won several national and international awards for his achievements in the field of Robotics. He also gives technical and motivational talks in various TV channels, colleges, schools and writes technical articles for newspapers.</p>
+        <p class="mt-4 text-gray-700  md:text-2xl ">He always used to say, "What you think, you become." He is called a Social Scientist based on his inventions for society.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ceo part ends here  -->
+
+<!-- video  -->
+<div class="container  mx-auto py-8">
+  <h1 class="text-center text-4xl font-bold py-20" style="font-family: 'Roboto', sans-serif;">Video Gallery</h1>
+  <div class="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <!-- Example video item -->
+    <div class="relative overflow-hidden bg-gray-200 rounded-lg shadow-lg">
+      <div class="video-container">
+        <!-- Replace video.mp4 with your video's file path -->
+        <video controls class="w-full h-full object-cover">
+          <source src="/transen/video/WhatsApp Video 2023-08-04 at 3.14.39 PM.mp4" type="video/mp4">
+          <!-- Add additional source elements for other video formats (e.g., WebM) -->
+          <!-- <source src="video.webm" type="video/webm"> -->
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
+    <!-- Add more video items as needed -->
+    <div class="relative overflow-hidden bg-gray-200 rounded-lg shadow-lg">
+      <div class="video-container">
+        <!-- Replace video.mp4 with your video's file path -->
+        <video controls class="w-full h-full object-cover">
+          <source src="/transen/video/WhatsApp Video 2023-08-04 at 3.18.57 PM.mp4" type="video/mp4">
+          <!-- Add additional source elements for other video formats (e.g., WebM) -->
+          <!-- <source src="video.webm" type="video/webm"> -->
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+    
+    <div class="relative overflow-hidden bg-gray-200 rounded-lg shadow-lg">
+      <div class="video-container">
+        <!-- Replace video.mp4 with your video's file path -->
+        <video controls class="w-full h-full object-cover">
+          <source src="/transen/video/Untitled.mp4" type="video/mp4">
+          <!-- Add additional source elements for other video formats (e.g., WebM) -->
+          <!-- <source src="video.webm" type="video/webm"> -->
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- video ends here  -->
+
   <!-- Services Section -->
-  <section class="py-8 md:py-12 bg-blue-200">
-    <h2 class="text-2xl md:text-4xl font-bold text-center   md:pt-20 mb-6">Our Services</h2>
+  <section id="services" class="py-8 md:py-12 bg-blue-800">
+    <h2 style="font-family: 'Roboto', sans-serif;" class="text-2xl md:text-4xl font-bold text-center  text-white  md:pt-20 mb-6">Our Services</h2>
     <div class=" md:h-screen flex justify-between items-center mx-16">
      
     <div class="container mx-auto text-center  ">
      
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-        <div class="bg-white shadow-md p-4 md:py-20 rounded-lg">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8">
+        <div style="font-family: 'Roboto', sans-serif;" class="bg-gray-300 shadow-md p-4 md:py-20 rounded-lg ">
           <h3 class="text-lg md:text-xl font-bold mb-2 md:pb-4">Robotics Consulting</h3>
           <p class="text-sm md:text-base md:mx-4">Our team of experts will help you navigate the world of robotics and automation to optimize your business.</p>
         </div>
-        <div class="bg-white shadow-md p-4 md:py-20 rounded-lg">
+        <div style="font-family: 'Roboto', sans-serif;" class="bg-gray-300 shadow-md p-4 md:py-20 rounded-lg">
           <h3 class="text-lg md:text-xl font-bold mb-2 md:pb-4">Custom Robotics Solutions</h3>
           <p class="text-sm md:text-base  md:mx-4">We design and develop custom robotic systems tailored to your specific needs and requirements.</p>
         </div>
-        <div class="bg-white shadow-md p-4 md:py-20 rounded-lg">
+        <div style="font-family: 'Roboto', sans-serif;" class="bg-gray-300 shadow-md p-4 md:py-20 rounded-lg">
           <h3 class="text-lg md:text-xl font-bold mb-2 md:pb-4">Industrial Automation</h3>
           <p class="text-sm md:text-base  md:mx-4">Automate your industrial processes with our state-of-the-art robotic automation solutions.</p>
+        </div>
+        <div style="font-family: 'Roboto', sans-serif;" class="bg-gray-300 shadow-md p-4 md:py-20 rounded-lg">
+          <h3 class="text-lg md:text-xl font-bold mb-2 md:pb-4">Training</h3>
+          <p class="text-sm md:text-base  md:mx-4">We train the students , professionals to industry ready and also equip them with knowledge on future technologies.</p>
         </div>
       </div>
     </div>
   </div>
   </section>
 
+
+  <!-- meet the team  -->
+  <section class="py-10 bg-gray-100 text-center">
+    <div class="container mx-auto">
+      <h1 class="text-4xl text-blue-800 font-bold mb-6 text-center">Meet the Team</h1>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- CEO -->
+        <div class="bg-white p-6 shadow-md rounded-lg">
+          <img src="./kennith.jpg" alt="CEO" class="mx-auto h-32 w-32 rounded-full mb-4">
+          <h2 class="text-xl font-semibold mb-2">Kennith Raj</h2>
+          <p class="text-gray-600">CEO</p>
+        </div>
+
+        <!-- Team Member 1 -->
+        <div class="bg-white p-6 shadow-md rounded-lg">
+          <img src="./chidambaram.jpg" alt="Team Member 1" class="mx-auto h-32 w-32 rounded-full mb-4">
+          <h2 class="text-xl font-semibold mb-2">Vignesh Chidambaram</h2>
+          <p class="text-gray-600">Project Head</p>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="bg-white p-6 shadow-md rounded-lg">
+          <img src="./saff.jpg" alt="Team Member 2" class="mx-auto h-32 w-32 rounded-full mb-4">
+          <h2 class="text-xl font-semibold mb-2">Saffi S</h2>
+          <p class="text-gray-600">Marketing Specialist</p>
+        </div>
+      </div>
+      <div class="flex justify-center mt-10">
+        <img src="./grp.jpg" alt="Group Photo" class="max-w-full h-auto rounded-2xl">
+      </div>
+    </div>
+    
+  </section>
+
+  <!-- meet the team section end here  -->
+
   <!-- Contact Section -->
   <section class="bg-blue-600 text-white py-8 md:py-16">
     <div class="container mx-auto text-center">
-      <h2 class="text-2xl md:text-3xl font-bold mb-4">Contact Us</h2>
+      <h2 style="font-family: 'Roboto', sans-serif;" class="text-2xl md:text-3xl font-bold mb-4">Contact Us</h2>
       <p class="text-base md:text-lg mb-8">Ready to take your business to the next level with robotics? Get in touch with us today.</p>
-      <a href="tel:7200795279" class="inline-block bg-blue-500 text-white rounded-lg py-2 px-4 text-center font-bold hover:bg-blue-600">
+      <a style="font-family: 'Roboto', sans-serif;" href="tel:7200795279" class="inline-block bg-blue-500 text-white rounded-lg py-2 px-4 text-center font-bold hover:bg-blue-600">
         Contact Now
     </a>
     </div>
   </section>
+
+  <!-- join course  -->
+  <div class="fixed bottom-8 right-8 z-50">
+   <a href=".course.html"> <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" id="courseDetailsButton">Course Details</button></a>
+    
+  </div>
+  <!-- join course end  -->
+
+<!-- address section  -->
+<section class="bg-gray-300 py-12">
+  <div class="container mx-auto px-4 md:px-8 lg:px-12 xl:px-16">
+    <div class="flex flex-col md:flex-row items-center justify-center">
+      <!-- Google Image -->
+      <!-- <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google" class="w-40 md:w-64 lg:w-80 h-auto md:h-20 lg:h-24 mr-0 md:mr-8 mb-6 md:mb-0"> -->
+
+      <!-- Google Address -->
+      <div id="add">
+        <h2 class="text-2xl font-semibold mb-2">TransenDynamics</h2>
+        <p class="text-gray-600 mb-4">99/77, Perambur High Rd, Perambur,<br>Chennai, Tamil Nadu 600011, India. </p>
+        <h4 class="text-gray-600 mb-4">Phone:7200795279</h4>
+        <a href="https://goo.gl/maps/1xhnc7ErBc9gyB6K6" class="block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">View on Map</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
   <!-- Footer Section -->
   <footer class="bg-blue-800 text-white py-6 md:py-8">
@@ -272,5 +557,7 @@
 
   
   <script src="js/script.js"></script>
+
+ 
 </body>
 </html>
