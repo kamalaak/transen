@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <!-- Include the Tailwind CSS stylesheet -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .video-container {
+      padding-bottom: 56.25%; /* 16:9 aspect ratio (change this to match your videos' aspect ratio) */
+    }
+
+    .video-container video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Responsive classes for different screen sizes */
+    @media (max-width: 639px) {
+      /* Mobile */
+      .grid-cols-1 {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 640px) and (max-width: 767px) {
+      /* Small devices (landscape phones) */
+      .grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      /* Tablets */
+      .grid-cols-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 1024px) {
+      /* Desktops */
+      .grid-cols-4 {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="">
+
+    <div class="container-full  mx-auto  p-8">
+       <div class=" mx-8  sm:mx-16 md:mx-28  lg:mx-80">
+        <h1 class=" font-bold mb-4 text-center text-2xl md:text-3xl py-20" style="font-family: 'Roboto', sans-serif;">Welcome to TransenDynamics!</h1>
+        <p class="text-lg  mb-8 text-justify">At TransenDynamics, we are pioneers in the world of automation and robotics, driving innovation
+          and revolutionizing industries across the globe. With a commitment to excellence and a passion for cutting-edge
+          technology, we are dedicated to creating intelligent solutions that streamline processes, enhance productivity, and
+          elevate efficiency for businesses of all sizes.</p>
+    
+        <h2 class="text-2xl font-semibold mb-4 font-bold"  style="font-family: 'Roboto', sans-serif;">Our Mission:</h2>
+        <p class="text-base text-justify mb-8">At the core of our mission lies the desire to transform industries through the power of
+          automation and robotics. We strive to empower businesses with the latest advancements in technology, enabling them
+          to optimize operations, reduce costs, and stay ahead in an ever-evolving market.</p>
+    
+        <h2 class="text-2xl font-semibold mb-4 font-bold" style="font-family: 'Roboto', sans-serif;">Our Vision:</h2>
+        <p class="text-base text-justify mb-8">We envision a future where automation and robotics are seamlessly integrated into every aspect
+          of human life, unlocking new possibilities and redefining what's achievable. Through our innovative products and
+          solutions, we aim to build a more sustainable and connected world, driving progress and prosperity for all.</p>
+    
+        <h2 class="text-2xl font-semibold mb-4 font-bold" style="font-family: 'Roboto', sans-serif;">What Sets Us Apart:</h2>
+        <p class="text-base text-justify mb-8">TransenDynamics stands out as a leader in the automation and robotics industry for several key
+          reasons:</p>
+        <ul class="list-disc text-justify ml-8">
+          <li class="mb-2">Expertise: Our team comprises seasoned experts with a wealth of experience in automation, robotics,
+            and related fields.</li>
+          <li class="mb-2">Cutting-Edge Technology: We stay at the forefront of technology trends, leveraging the latest
+            advancements to develop state-of-the-art solutions.</li>
+          <li class="mb-2">Customized Solutions: Our solutions are tailor-made to address specific challenges and requirements,
+            ensuring optimal performance and results.</li>
+          <li class="mb-2">Reliability and Support: We provide unparalleled customer support, ensuring our clients' systems are
+            running smoothly and efficiently.</li>
+          <li class="mb-2">Ethical Approach: We conduct our business ethically and responsibly, actively working towards creating
+            a positive impact on the communities we serve.</li>
+        </ul>
+    
+        <h2 class="text-2xl font-semibold mb-4 mt-4 font-bold" style="font-family: 'Roboto', sans-serif;">Our Range of Solutions:</h2>
+        <p class="text-base mb-8">TransenDynamics offers an extensive portfolio of automation and robotics solutions that
+          encompass various industries, including manufacturing, logistics, healthcare, agriculture, and more. From robotic
+          process automation (RPA) to autonomous vehicles, industrial robotics, and smart manufacturing, our products are
+          designed to optimize operations and drive success.</p>
+       </div>
+    
+      </div>
+
+  <div class="container mx-auto py-8">
+
+    <h1 class="text-center text-4xl font-bold py-20" style="font-family: 'Roboto', sans-serif;">Video Gallery</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4">
+      <!-- Example video item -->
+      <div class="relative overflow-hidden bg-gray-200 rounded-lg shadow-lg">
+        <div class="video-container ">
+          <!-- Replace video.mp4 with your video's file path -->
+          <video controls class="w-full h-full">
+            <source src="/video/WhatsApp Video 2023-08-04 at 3.14.39 PM.mp4" type="video/mp4">
+            <!-- Add additional source elements for other video formats (e.g., WebM) -->
+            <!-- <source src="video.webm" type="video/webm"> -->
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <!-- Add more video items as needed -->
+      <div class="relative overflow-hidden bg-gray-200 rounded-lg shadow-lg">
+        <div>
+            <div class="video-container  ">
+                <!-- Replace video.mp4 with your video's file path -->
+                <video controls class="w-full h-full">
+                  <source src="/video/WhatsApp Video 2023-08-04 at 3.18.57 PM.mp4" type="video/mp4">
+                  <!-- Add additional source elements for other video formats (e.g., WebM) -->
+                  <!-- <source src="video.webm" type="video/webm"> -->
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</body>
+
+</html>
